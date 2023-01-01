@@ -8,9 +8,9 @@
 # 初期設定
 # --------------------------------------------------------------------------------
 # 保存先フォルダ
-dir = r"C:\log"
+dir = r"G:\memories\mitene"
 # ブラウザ版みてねのURL
-mitene_url = "https://mitene.us/f/xxxxxxx"
+mitene_url = "https://mitene.us/f/xxx"
 
 
 # --------------------------------------------------------------------------------
@@ -58,6 +58,9 @@ while end_flag == False :
         # タイムスタンプの取得
         date = dict_data['tookAt'].replace(':','').replace('+0900','').replace('T','_')
 
+        # idの取得
+        id = str(dict_data['id'])
+
         # media typeのチェック
         media = dict_data['mediaType']
 
@@ -65,7 +68,7 @@ while end_flag == False :
         if media == 'movie' :
 
             #ファイル名の作成
-            file_name = date+".mp4"
+            file_name = date+'_'+id+".mp4"
 
             print("Page %s, No.%s : filename %s" % (pageno, i+1, file_name), end='')
             if os.path.isfile(file_name) :
@@ -110,7 +113,7 @@ while end_flag == False :
             media_url = dict_data['expiringUrl']
 
             #ファイル名の作成
-            file_name = date+".jpg"
+            file_name = date+'_'+id+".jpg"
 
             print("Page %s, No.%s : filename %s" % (pageno, i+1, file_name),end='')
             if os.path.isfile(file_name) :
